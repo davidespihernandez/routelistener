@@ -27,7 +27,8 @@ class RabbitRouteBuilder extends RouteBuilder {
 				"&username={{spring.rabbitmq.username}}" +
 				"&password={{spring.rabbitmq.password}}" +
 				"&routingKey={{spring.rabbitmq.routingKey}}" +
-				"&prefetchSize=1&autoAck=false&autoDelete=false")
+				"&prefetchSize=1&autoAck=false&autoDelete=false" +
+				"&exchangeType=topic")
 			.setExchangePattern(ExchangePattern.InOut)
 			.process(messageTypeProcessor)
 			.log("Received: ${body}")
